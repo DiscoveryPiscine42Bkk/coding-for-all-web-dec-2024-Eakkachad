@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- ระบุการเข้ารหัสเป็น UTF-8 เพื่อรองรับตัวอักษรหลากหลายภาษา -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ทำให้เว็บเพจเหมาะกับทุกอุปกรณ์ -->
+    <title>Random Background Color</title> <!-- ชื่อของหน้าเว็บที่แสดงบนแท็บเบราว์เซอร์ -->
+    
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- โหลด jQuery เวอร์ชัน 3.6.0 -->
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="backgrooud.css"> <!-- ลิงก์สไตล์ชีท -->
+</head>
+<body>
+
+    <!-- ปุ่มที่ผู้ใช้สามารถคลิกเพื่อเปลี่ยนสีพื้นหลัง -->
+    <button id="clickMeButton">Click Me!</button>
+
+    <!-- สคริปต์ JavaScript -->
+    <script>
+        $(document).ready(function() { 
+            // ตรวจสอบว่า DOM ถูกโหลดเรียบร้อยแล้วก่อนเริ่มต้นทำงาน
+
+            $('#clickMeButton').click(function() { 
+                // กำหนดเหตุการณ์เมื่อปุ่มที่มี id="clickMeButton" ถูกคลิก
+
+                var randomColor = getRandomColor(); 
+                // เรียกฟังก์ชันเพื่อสุ่มสี และเก็บค่าที่ได้ในตัวแปร randomColor
+
+                $('body').css('background-color', randomColor); 
+                // เปลี่ยนสีพื้นหลังของแท็ก <body> เป็นสีที่สุ่มได้
+            });
+
+            // ฟังก์ชันสำหรับสร้างสีสุ่มในรูปแบบรหัส Hexadecimal เช่น #FF5733
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'; 
+                // ตัวเลือกสำหรับตัวเลขและตัวอักษรในรหัสสี
+                var color = '#'; 
+                // เริ่มต้นรหัสสีด้วยเครื่องหมาย #
+
+                for (var i = 0; i < 6; i++) { 
+                    // ทำซ้ำ 6 ครั้งเพื่อสร้างรหัสสี 6 หลัก
+                    color += letters[Math.floor(Math.random() * 16)];
+                    // เลือกตัวอักษรหรือตัวเลขแบบสุ่มจากตัวเลือก และต่อท้ายในตัวแปร color
+                }
+
+                return color; 
+                // คืนค่ารหัสสีที่สุ่มได้
+            }
+        });
+    </script>
+
+</body>
+</html>

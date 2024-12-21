@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- นำเข้า jQuery -->
+</head>
+<body>
+    <h1>เครื่องคณิตกร</h1>
+    
+    <!-- แบบฟอร์มเครื่องคิดเลข -->
+    <input type="text" id="leftOperand" placeholder="Left number"> <!-- ช่องกรอกตัวเลขด้านซ้าย -->
+    <select id="operator"> <!-- เมนูเลือกเครื่องหมายคณิตศาสตร์ -->
+        <option value="+">+</option> <!-- บวก -->
+        <option value="-">-</option> <!-- ลบ -->
+        <option value="*">*</option> <!-- คูณ -->
+        <option value="/">/</option> <!-- หาร -->
+        <option value="%">%</option> <!-- หารเอาเศษ -->
+    </select>
+    <input type="text" id="rightOperand" placeholder="Right number"> <!-- ช่องกรอกตัวเลขด้านขวา -->
+    <button id="calculateButton">Try me!</button> <!-- ปุ่มสำหรับคำนวณ -->
+
+    <script>
+        $(document).ready(function() {
+            // เมื่อคลิกปุ่ม "Try me!"
+            $('#calculateButton').click(function() {
+                const leftOperand = $('#leftOperand').val(); // อ่านค่าจากช่องกรอกตัวเลขด้านซ้าย
+                const rightOperand = $('#rightOperand').val(); // อ่านค่าจากช่องกรอกตัวเลขด้านขวา
+                const operator = $('#operator').val(); // อ่านค่าจากเมนูเลือกเครื่องหมายคณิตศาสตร์
+
+                // ตรวจสอบว่าเป็นเลขจำนวนเต็มบวกหรือไม่
+                if (!isPositiveInteger(leftOperand) || !isPositiveInteger(rightOperand)) {
+                    alert("Error :("); // แสดงข้อความเมื่อไม่ใช่เลขจำนวนเต็มบวก
+                    console.error("Error :("); // แสดงข้อความใน console
+                    return;
+                }
+
+                // ตรวจสอบว่าเลขไม่เกินค่ามากสุดที่สามารถใช้ได้
+                if ((leftOperand) > 2147483647 || (rightOperand) > 2147483647) {
+                    alert("Error :("); // แสดงข้อความเมื่อเลขเกินขนาดที่รับได้
+                    console.error("Error :("); // แสดงข้อความใน console
+                    return;
+                }
+
+                const num1 = parseInt(leftOperand); // แปลงค่าของตัวเลขด้านซ้ายเป็นจำนวนเต็ม
+                const num2 = parseInt(rightOperand); // แปลงค่าของตัวเลขด้านขวาเป็นจำนวนเต็ม
+                let result;
+
+                try {
+                    // ทำการคำนวณตามเครื่องหมายที่เลือก
+                    switch (operator) {
+                        case '+': result = num1 + num2; break; // ถ้าเครื่องหมายเป็น "+" ให้บวก
+                        case '-': result = num1 - num2; break; // ถ้าเครื่องหมายเป็น "-" ให้ลบ
+                        case '*': result = num1 * num2; break; // ถ้าเครื่องหมายเป็น "*" ให้คูณ
+                        case '/':
+                        case '%':
+                            if (num2 === 0) { // ถ้าหากหารด้วย 0
+                                alert("It's over 9000!"); // แสดงข้อความว่าไม่สามารถหารด้วย 0 ได้
+                                console.error("It's over 9000!"); // แสดงข้อความใน console
+                                return;
+                            }
+                            // หากเป็นการหารหรือหาค่าเศษ
+                            result = operator === '/' ? num1 / num2 : num1 % num2;
+                    }
+
+                    // แสดงผลลัพธ์การคำนวณ
+                    alert(`Result: ${result}`);
+                    console.log(`Result: ${result}`); // แสดงผลลัพธ์ใน console
+                } catch (e) {
+                    alert("Error :("); // หากเกิดข้อผิดพลาดใดๆ
+                    console.error("Error :("); // แสดงข้อความใน console
+                }
+            });
+
+            // ฟังก์ชันตรวจสอบว่าเป็นจำนวนเต็มบวกหรือไม่
+            function isPositiveInteger(value) {
+                return /^\d+$/.test(value); // ใช้ Regular Expression ตรวจสอบว่าเป็นตัวเลขบวกทั้งหมด
+            }
+
+            // ทุก 30 วินาทีจะเตือนให้ใช้เครื่องคิดเลข
+            setInterval(function() {
+                alert("Please, use me..."); // แสดงข้อความเตือน
+            }, 30000); // ตั้งเวลาเตือนทุก 30 วินาที
+        });
+    </script>
+
+</body>
+</html>

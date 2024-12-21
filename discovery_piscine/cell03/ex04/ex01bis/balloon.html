@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* กำหนดสไตล์พื้นฐานสำหรับหน้าเว็บ */
+        body {
+            height: 100vh; /* ตั้งความสูงของหน้าเว็บให้เต็ม viewport */
+            margin: 0; /* ลบระยะขอบของหน้าเว็บทั้งหมด */
+            display: flex; /* ใช้ Flexbox สำหรับการจัดวางเนื้อหา */
+            justify-content: center; /* จัดเนื้อหาให้อยู่กึ่งกลางในแนวนอน */
+            align-items: center; /* จัดเนื้อหาให้อยู่กึ่งกลางในแนวตั้ง */
+            background-color: #f0f0f0; /* กำหนดสีพื้นหลังของหน้าเว็บ */
+        }
+
+        /* สไตล์สำหรับลูกโป่ง */
+        #balloon {
+            width: 200px; /* ความกว้างเริ่มต้นของลูกโป่ง */
+            height: 200px; /* ความสูงเริ่มต้นของลูกโป่ง */
+            background-color: red; /* สีพื้นหลังเริ่มต้นของลูกโป่ง */
+            border-radius: 50%; /* ทำให้ลูกโป่งมีลักษณะเป็นวงกลม */
+            display: flex; /* ใช้ Flexbox ภายในลูกโป่ง */
+            justify-content: center; /* จัดเนื้อหาให้อยู่กึ่งกลางในแนวนอน */
+            align-items: center; /* จัดเนื้อหาให้อยู่กึ่งกลางในแนวตั้ง */
+            cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อชี้ไปที่ลูกโป่ง */
+            transition: all 0.3s ease; /* ทำให้การเปลี่ยนแปลงของขนาดและสีมีความลื่นไหล */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ลูกโป่ง -->
+    <div id="balloon"></div>
+
+    <script>
+        $(document).ready(function() {
+            // กำหนดสีที่ใช้ในการเปลี่ยนสีลูกโป่ง
+            var colors = ['red', 'green', 'blue']; 
+            var currentColorIndex = 0; // เก็บตำแหน่งของสีปัจจุบันในอาร์เรย์
+            var balloonSize = 200; // ขนาดเริ่มต้นของลูกโป่ง
+
+            // ฟังก์ชันสำหรับการคลิกที่ลูกโป่ง
+            $('#balloon').click(function() {
+                if (balloonSize >= 415) { // ถ้าขนาดลูกโป่งใหญ่กว่าหรือเท่ากับ 415px
+                    // รีเซ็ตลูกโป่งกลับไปที่ขนาดเริ่มต้น
+                    balloonSize = 200; 
+                    $('#balloon').css({
+                        'width': balloonSize + 'px',
+                        'height': balloonSize + 'px',
+                        'background-color': colors[0] // กลับไปที่สีเริ่มต้น (สีแดง)
+                    });
+                    currentColorIndex = 0; // รีเซ็ตตำแหน่งสี
+                } else {
+                    // เพิ่มขนาดลูกโป่งขึ้นทีละ 10px
+                    balloonSize += 10; 
+                    // เปลี่ยนสีลูกโป่ง
+                    currentColorIndex = (currentColorIndex + 1) % colors.length; 
+                    $('#balloon').css({
+                        'width': balloonSize + 'px',
+                        'height': balloonSize + 'px',
+                        'background-color': colors[currentColorIndex]
+                    });
+                }
+            });
+
+            // ฟังก์ชันสำหรับเมื่อเมาส์ออกจากลูกโป่ง
+            $('#balloon').mouseleave(function() {
+                if (balloonSize > 200) { // ถ้าขนาดลูกโป่งมากกว่าขนาดเริ่มต้น
+                    balloonSize -= 5; // ลดขนาดลูกโป่งลงทีละ 5px
+                    currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length; // ย้อนกลับไปที่สีก่อนหน้า
+                    $('#balloon').css({
+                        'width': balloonSize + 'px',
+                        'height': balloonSize + 'px',
+                        'background-color': colors[currentColorIndex]
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
