@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero{
+    background: #161616;
+    min-height: 100vh;
+    width: 100%;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+nav{
+    display: flex;
+    align-items: center;
+    padding: 20px 8%;
+}
+nav .menu-img{
+    width: 25px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+nav .logo{
+    width: 150px;
+    cursor: pointer;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+button{
+    background: #efefef;
+    height: 30px;
+    width: 60px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 0.75s;
+
+}
+button span{
+    display: block;
+    background: #999;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    margin-left: 2px;
+    transition: background 0.75s, margin-left 0.5%;
+}
+.lamp-container{
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 220px;
+}
+.lamp{
+    width: 250%;
+}
+.light{
+    position: absolute;
+    top: -15%;
+    left: 131%;
+    transform: translateX(-50%);
+    width: 700px;
+    margin-left: -10px;
+    opacity: 0%;
+    transition: opacity 0.75s;
+}
+.lory {
+    position: absolute;
+    top: 10%;
+    left: 325%;
+    transform: translateX(-50%);
+    width: 450px;
+    margin-left: -10px;
+    opacity: 0%;
+    animation: spin 5s linear infinite; /* เพิ่มแอนิเมชันสำหรับการหมุน */
+    z-index: 0;
+    transition: opacity 0.75s;
+}
+@keyframes spin {
+    from {
+        transform: translateX(-50%) rotate(0deg); /* เริ่มต้นที่ 0 องศา */
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg); /* หมุนครบ 360 องศา */
+    }
+}
+.text-container{
+    max-width: 600px;
+    margin-top: 7%;
+    margin-left: 50%;
+}
+.text-container h1{
+    font-size: 80px;
+    font-weight: 400;
+}
+.text-container a{
+    text-decoration: none;
+    background: #79d115;
+    padding: 14px 40px;
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+.text-container a{
+    text-decoration: none;
+    background: #79d115;
+    padding: 14px 40px;
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+.active{
+    background: green;
+}
+.active span{
+    background: #fff;
+    margin-left: 31px;
+}
+.on{
+    opacity: 1;
+}
+.music-controls {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#toggle-music {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#toggle-music:hover {
+    background-color: #cc0000;
+}

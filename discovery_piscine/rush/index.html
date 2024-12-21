@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enam Egap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hero">
+    <nav>
+        <img src="images/menu.png" class="menu-img">
+        <button type="button" onclick="toggleBtn()" id="btn"><span></span></button>
+    </nav>
+
+    <div class="lamp-container">
+        <img src="images/candle.png" class="lamp" data-bs-toggle="modal" data-bs-target="#modalFlame">
+        <img src="images/flame.png" class="light" id="light" data-bs-toggle="modal" data-bs-target="#modalFlame">
+        <img src="images/lor.png" class="lory" id="lory" data-bs-toggle="modal" data-bs-target="#modalLory">
+    </div>
+    <div class="text-container">
+        <h1>ขายครับขาย!!!!!</h1>
+        <p>🔥 "มาที่เดียว ครบทุกความโหด! ร้านเราคือที่เดียวที่คุณไม่ควรพลาด!" 🔥<br>
+
+            ⚡ หากคุณต้องการความแรง เรามีทุกอย่างที่คุณตามหาสินค้าระดับพรีเมียมที่ไม่เหมือนใคร!<br>
+            💣 ร้านเราไม่เคยหยุดพัฒนา สินค้าทุกชิ้นถูกคัดเลือกมาอย่างพิถีพิถันเพื่อความโหดของคุณ!<br>
+            
+            💥 ไม่เพียงแค่สินค้าดี แต่ทุกการบริการก็ต้อง "โหด"!<br>
+            รับประกันคุณภาพ บริการจัดส่งไว และข้อเสนอสุดพิเศษที่คุณไม่เคยเจอที่ไหน!</p>
+        <a href="About erk.html">See our faces</a>
+    </div>
+</div>
+<audio id="bg-music" src="sound/เอาปาว - มอส คำหมากบน [OFFICIAL MV].mp3" autoplay loop></audio>
+
+<div class="music-controls">
+    <button id="toggle-music">ปิด</button>
+</div>
+
+
+
+<!-- Modal Flame -->
+<div class="modal fade" id="modalFlame" tabindex="-1" aria-labelledby="modalFlameLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalFlameLabel">BlazeX 450บาท</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+ไม่ใช่แค่แสงสว่าง... แต่นี่คือเทียนที่พร้อมเผาไหม้ทุกความมืด!<dr>
+**‘BlazeX’ เทียนที่ไม่ใช่แค่เทียน แต่คือการประกาศสงครามกับความมืดมิด!**<dr>    
+- **ลุกแรง!** ไม่มีวันดับจนกว่าจะสั่งให้หยุด  
+- **กลิ่นหอมที่ดุดัน!** เติมเต็มห้องของคุณด้วยกลิ่นที่สะกดทุกประสาทสัมผัส<dr>
+- **สร้างอารมณ์บรรยากาศ!** เหมาะสำหรับค่ำคืนที่คุณต้องการจะเดือดดาลหรือละลาย  
+
+🔥 **BlazeX – จุดไฟให้ชีวิตคุณ!** 🔥"  
+
+อย่ารอช้า... หรือคุณจะอยู่ในความมืดตลอดไป!
+            </div>
+            <div class="modal-footer">
+                <a href="https://www.youtube.com/watch?v=AtPrjYp75uA" target="_blank">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ไม่ซื้อ</button>
+                </a>
+                <a href="https://www.youtube.com/watch?v=-sPvp1O11sA" target="_blank">
+                    <button type="button" class="btn btn-primary">ซื้อ</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Lory -->
+<div class="modal fade" id="modalLory" tabindex="-1" aria-labelledby="modalLoryLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalLoryLabel">Warlord Wheel</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+"ล้อเกวียนแห่งการครองถนน – สุดแกร่ง ดุดัน และไม่มีวันยอมแพ้!"**  
+- **หมุนแรง!** พาชีวิตคุณไปได้ทุกที่ แม้แต่ในที่ที่ล้ออื่นต้องยอมแพ้  
+- **ทนทานต่อทุกสภาพแวดล้อม!** ดินโคลน ทราย หรือทางหิน ก็พร้อมลุย  
+- **ดีไซน์โบราณแต่วิญญาณสุดโหด!** เพิ่มความดิบให้การเดินทางของคุณ  
+
+**"อยากให้รถเกวียนของคุณโหด? ต้อง ‘Warlord Wheel’ – ล้อที่ไม่ได้หมุน แต่เหยียบทุกเส้นทางให้สยบ!"**  
+
+🌪️ **พลังแห่งการหมุนที่แม้กาลเวลาเองก็หยุดไม่ได้!** 🌪️  
+**เลือก Warlord Wheel ถ้าคุณกล้าพอที่จะครองทุกถนน!**
+            </div>
+            <div class="modal-footer">
+                <a href="https://www.youtube.com/watch?v=AtPrjYp75uA" target="_blank">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">บ่ซื้อ</button>
+                </a>
+                <a href="https://www.youtube.com/watch?v=-sPvp1O11sA" target="_blank">
+                    <button type="button" class="btn btn-primary">ซื้อ</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var btn = document.getElementById("btn");
+    var light = document.getElementById("light");
+    var lory = document.getElementById("lory");
+
+    const bgMusic = document.getElementById('bg-music');
+    let isPlaying = false; // เริ่มต้นที่เพลงไม่เล่น
+
+    // เปลี่ยนสถานะการเล่นเพลงเมื่อกดปุ่ม
+    function toggleBtn() {
+        btn.classList.toggle("active");
+        light.classList.toggle("on");
+        lory.classList.toggle("on");
+
+        if (isPlaying) {
+            bgMusic.pause(); // หยุดเพลง
+        } else {
+            bgMusic.play(); // เล่นเพลง
+        }
+
+        isPlaying = !isPlaying; // สลับสถานะการเล่นเพลง
+    }
+
+    // เพิ่มเหตุการณ์สำหรับปุ่ม toggle music ที่มีอยู่
+    const toggleMusicButton = document.getElementById('toggle-music');
+    toggleMusicButton.addEventListener('click', () => {
+        if (isPlaying) {
+            bgMusic.pause(); // หยุดเพลง
+            toggleMusicButton.textContent = 'เปิด'; // เปลี่ยนข้อความปุ่ม
+        } else {
+            bgMusic.play(); // เล่นเพลงต่อ
+            toggleMusicButton.textContent = 'ปิด'; // เปลี่ยนข้อความปุ่ม
+        }
+        isPlaying = !isPlaying; // สลับสถานะ
+    });
+</script>
+</body>
+</html>
